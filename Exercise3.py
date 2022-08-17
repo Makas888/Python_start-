@@ -16,4 +16,4 @@ print('number is even:', odd_even % 2 == 0)
 
 #  5. Write a Python program to find largest number among three numbers entered by user.
 numbers = input('entered 3 numbers: ')
-print('equal numbers:', max(list(numbers)))
+print('entered numbers', numbers, 'equal numbers:', max(list(numbers)))
