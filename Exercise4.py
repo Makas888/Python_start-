@@ -16,7 +16,7 @@ apartments_in_floor = floor * entrance
 total_apartments = apartments_in_floor * entrance
 result = 1 <= flat_number <= total_apartments and \
          (f'entrance: {(flat_number - 1) // apartments_in_floor + 1}'
-          f' floor: {(flat_number - 1) // entrance % floor + 1}')
+          f'\nfloor: {(flat_number - 1) // entrance % floor + 1}')
 print(result or 'no such apartment')
 
 # 3) Определить количество дней в году, который вводит пользователь. В
