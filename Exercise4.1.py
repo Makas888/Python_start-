@@ -42,5 +42,7 @@ elif int(number) % 2:
 # в залежності від того, на який день тижня (від понеділка до неділі)
 # припадає день (ціла змінна day) невисокосного року, в якому 1 січня - понеділок (1 ≤ day ≤ 365).
 day = int(input('day: '))
-number = (day - 1) % 7 + 1
-print(number)
+count_days_in_week = 7
+if 1 <= day <= 365:
+    number = (day - 1) % count_days_in_week + 1
+    print(number)
