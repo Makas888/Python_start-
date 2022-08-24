@@ -8,7 +8,7 @@ list_number = []
 for i in number:
     list_number.append(int(i))
 if not len(list_number) % 2:
-    half_list = int(len(list_number) / 2)
+    half_list = len(list_number) // 2
     if sum(list_number[:half_list]) == sum(list_number[half_list:]):
         print('lucky ticket')
     else:
