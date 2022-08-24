@@ -4,7 +4,10 @@
 # правой половины. Например, рассмотрим число 1322. Его левая половина равна
 # 13, а правая 22, и оно является счастливым билетом (т. к. 1 + 3 = 2 + 2).
 number = input('number: ')
-list_number = [int(i) for i in number]
+list_number = list(map(int, number))
+# list_number = [int(i) for i in number]
+# for i in number:
+#     list_number.append(int(i))
 if not len(list_number) % 2:
     half_list = len(list_number) // 2
     if sum(list_number[:half_list]) == sum(list_number[half_list:]):
