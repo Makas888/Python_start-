@@ -71,8 +71,7 @@ print('odd numbers: ', count)
 import random
 base_list = []
 [base_list.append(random.randrange(20)) for _ in range(4)]
-new_list = base_list.copy()
-[new_list.append(base_list[i] * 2) for i in range(4)]
+new_list = base_list.copy() + [i * 2 for i in range(4)]
 print(base_list)
 print(new_list)
 
@@ -146,3 +145,37 @@ while True:
 list_ = [7, 2, 9, 4]
 list_.reverse()
 print(list_)
+
+# 1)«Перевернуть матрицу». Т.е. написать программу, которая повернет базовую
+# матрицу на 90,180,270 градусов по часовой стрелке. (При выполнении задания
+# использовать дополнительную матрицу нельзя).
+matrix = [[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6],
+          [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]]
+[print(i) for i in matrix]
+print('')
+# 90'
+for i in range(len(matrix)):
+    a = len(matrix) - 1
+    for j in range(len(matrix)):
+        matrix[i].append(matrix[a][0])
+        matrix[a].pop(0)
+        a -= 1
+[print(i) for i in matrix]
+print('')
+# 180'
+matrix = [[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6],
+          [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]]
+[i.reverse() for i in matrix]
+[print(i) for i in matrix]
+print('')
+# 270'
+matrix = [[1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6],
+          [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6]]
+for i in range(len(matrix)):
+    a = len(matrix) - 1
+    for j in range(len(matrix)):
+        matrix[i].append(matrix[a][0])
+        matrix[a].pop(0)
+        a -= 1
+matrix.reverse()
+[print(i) for i in matrix]
