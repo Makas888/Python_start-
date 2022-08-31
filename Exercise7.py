@@ -14,18 +14,14 @@ print(name) if name.isalpha() and name == name.title() else print('not valid')
 # 3) Напишите программу, которая вычислит сумму всех кодов символов
 # строки.
 string_name = input('string: ')
-summa = 0
-for i in string_name:
-    summa += ord(i)
+summa = sum(map(ord, string_name))
 print(summa)
 
 # 4) Выведите на экран 10 строк со значением числа Pi. В первой строке
 # должно быть 2 знака после запятой, во второй 3 и так далее.
 import math
-count = 2
-for _ in range(10):
-    print(round(math.pi, count))
-    count += 1
+for i in range(2, 12):
+    print(f'{round(math.pi, i)}')
 
 # 5) Вводится строка из слов, разделенных пробелами. Найти самое длинное
 # слово и вывести его на экран.
