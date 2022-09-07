@@ -6,8 +6,8 @@ def max_number(numbers):
 
 # 2) Реализуйте функцию, параметрами которой являются - два числа и
 # строка. Возвращает она конкатенацию строки с суммой чисел.
-def summa(a, b, string):
-    return str(a + b) + string
+def summa(a, b, s):
+    return str(a + b) + s
 
 
 # 3) Реализуйте функцию рисующую на экране прямоугольник из звездочек
@@ -29,9 +29,11 @@ print(rectangle(5, 6))
 def search_elem(numbers, item):
     return numbers.index(item) if item in numbers else '-1'
 
+
 # 5) Напишите функцию, которая вернет количество слов в строке текста
 def count_word(text):
     return len(text.split())
+
 
 # 2) Число-палиндром с обеих сторон (справа налево и слева направо)
 # читается одинаково. Самое большое число-палиндром, полученное
