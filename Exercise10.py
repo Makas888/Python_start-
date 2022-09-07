@@ -14,11 +14,13 @@ def summa(a, b, string):
 # «*». Ее параметрами будут целые числа, которые описывают длину и
 # ширину такого прямоугольника.
 def rectangle(height, width):
-    for i in range(1, height + 1):
-        if i == 1 or i == height:
-            print('*' * width)
-        else:
-            print(f'*{" " * (width - 2)}*')
+    res = '*' * width + '\n'
+    res += ('*' + ' ' * (width - 2) + '*\n') * (height - 2)
+    res += '*' * width + '\n'
+    return res
+
+
+print(rectangle(5, 6))
 
 
 # 4) Напишите функцию, которая реализует линейный поиск элемента в
