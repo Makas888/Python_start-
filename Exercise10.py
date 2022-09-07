@@ -37,10 +37,10 @@ def count_word(text):
 # большой палиндром, полученный умножением двух трехзначных чисел.
 # Выведите значение этого палиндрома и то, произведением каких чисел он
 # является.
-def palindrome(def palindrome(a, b):
+def palindrome(a, b):
     palindromes = []
-    for j in range(a, 1, -1):
-        for i in range(b, 1, -1):
+    for j in range(a + 1):
+        for i in range(b + 1):
             if str(j * i) == str(j * i)[::-1]:
                 palindromes.append([j * i, j, i])
     res = max(palindromes)
@@ -49,4 +49,3 @@ def palindrome(def palindrome(a, b):
 
 result = palindrome(999, 999)
 print(f'{result[0]} - is max palindrome of {result[1]} and {result[2]}')
-print(palindrome(999, 999))
