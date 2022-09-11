@@ -62,7 +62,7 @@ def age_gradation(age, name):
 first_name, age_ = input('name: '), int(input('age: '))
 print(age_gradation(age_, first_name))
 
-# 1) Существует список [1,2,3,4,5]. Размер списка может быть произвольным, однако
+# 1*) Существует список [1,2,3,4,5]. Размер списка может быть произвольным, однако
 # заполнен он всегда цифрами от 1 и далее по возрастанию с шагом 1. Напишите
 # программу, которая выведет на экран все возможные комбинации, которые могут
 # быть получены перестановкой элементов этого списка. Внимание! Повторений и
@@ -98,3 +98,50 @@ def all_combination(a):
 
 x = [1, 2, 3, 4, 5]
 print(all_combination(x))
+
+# 2*)
+# ☺
+# 7
+# 5 8
+# 9 8 2
+# 1 3 5 6
+# 6 2 4 4 5
+# 9 5 3 5 5 7
+# 7 4 6 4 7 6 8
+# На вершине горы стоит золотоискатель (смайлик
+# наверху). Цифра в клетке обозначает количество
+# золотых слитков, которые в ней хранятся.
+# Золотоискатель может за один раз или спуститься на
+# одну клетку вниз, или спуститься на одну клетку вниз и
+# вправо.
+# Напишите программу, которая определит
+# максимальное количество золотых слитков, которые
+# может найти золотоискатель, двигаясь от вершины горы
+# вниз.
+import random
+
+
+def max_gold(args):
+    args = args.replace(' ', '').split('\n')
+    args.remove('☺')
+    max_count_gold = 0
+    count = 0
+    for arg in args:
+        if len(arg) > 1:
+            max_count_gold += max(int(arg[count]), int(arg[count + 1]))
+            if max(int(arg[count]), int(arg[count + 1])) == int(arg[count + 1]):
+                count += 1
+        elif len(arg) == 1:
+            max_count_gold += int(arg[0])
+    return max_count_gold
+
+
+res = '☺'
+for item in range(1, 8):
+    res += '\n'
+    for i in range(item):
+        res += str(random.randint(1, 9)) + ' '
+    res = res.rstrip()
+
+print(res)
+print(f'Gold digger mined {max_gold(res)} gold bars')
