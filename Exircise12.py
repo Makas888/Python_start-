@@ -122,8 +122,17 @@ import random
 
 
 def max_gold(args):
+    """
+    return the max amount in the task
+    returns the sum of the numbers of the most profitable passage of the
+     sequence according to the conditions of the "gold digger" problem
+    :param args: str
+    :return: int
+    """
+    if not isinstance(args, str):
+        return None
     args = args.replace(' ', '').split('\n')
-    args.remove('☺')
+    args.remove(args[0])
     max_count_gold = 0
     count = 0
     for arg in args:
