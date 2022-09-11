@@ -129,8 +129,13 @@ def max_gold(args):
     for arg in args:
         if len(arg) > 1:
             max_count_gold += max(int(arg[count]), int(arg[count + 1]))
-            if max(int(arg[count]), int(arg[count + 1])) == int(arg[count + 1]):
+            if int(arg[count]) == int(arg[count + 1]) and len(arg) < len(args) - 1:     # line of code "gold digger's intuition 1 step ahead"
+                if max(int(args[len(arg)][count + 1]), int(args[len(arg)][count + 2]),  #
+                       int(args[len(arg)][count])) == int(args[len(arg)][count + 2]):   #
+                    count += 1                                                          #
+            elif max(int(arg[count]), int(arg[count + 1])) == int(arg[count + 1]):
                 count += 1
+
         elif len(arg) == 1:
             max_count_gold += int(arg[0])
     return max_count_gold
