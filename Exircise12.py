@@ -35,12 +35,8 @@ print(triangle(5, '#'))
 # возраст, а после 90 - долгожитель.
 
 
-def age_correct(age):
-    return True if 0 < age < 500 else False
-
-
 def age_gradation(age, name):
-    if age_correct(age):
+    if 0 < age < 500:
         if 0 < age <= 10:
             return f'{name}, {age} years - "childhood"'
         if 10 < age <= 25:
