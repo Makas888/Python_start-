@@ -70,6 +70,12 @@ print(age_gradation(age_, first_name))
 
 
 def min_combination(a):
+    """
+    minimum number
+    will return the minimum number from the digits in the list
+    :param a: list
+    :return: int
+    """
     start = ''
     for i in a:
         start += str(i)
@@ -77,6 +83,12 @@ def min_combination(a):
 
 
 def max_combination(a):
+    """
+    max number
+    will return the maximum number from the digits in the list
+    :param a: list
+    :return: int
+    """
     finish = ''
     for i in reversed(a):
         finish += str(i)
@@ -84,6 +96,19 @@ def max_combination(a):
 
 
 def all_combination(a):
+    """
+    returns a list with all possible combinations of numbers contained in the list
+     from 1 and then in ascending order with a step of 1 passed to the function
+    :param a: list
+    :return: list
+    """
+    if not isinstance(a, list):
+        return None
+    for i in a:
+        if not isinstance(i, int):
+            return None
+    if not a == list(range(1, len(a) + 1)):
+        return None
     set_num = set(a)
     res = []
     for item in range(min_combination(a), max_combination(a) + 1):
