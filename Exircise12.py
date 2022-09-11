@@ -180,3 +180,58 @@ for item in range(1, 8):
 
 print(res)
 print(f'Gold digger mined {max_gold(res)} gold bars')
+
+# 1) Существуют такие последовательности чисел:
+# 0,2,4,6,8,10,12
+# 1,4,7,10,13
+# 1,2,4,8,16,32
+# 1,3,9,27
+# 1,4,9,16,25
+# 1,8,27,64,125
+# Реализуйте программу, которая выведет следующий член этой последовательности
+# (либо подобной им) на экран. Последовательность пользователь вводит с
+# клавиатуры в виде строки. Например, пользователь вводит строку 0,5,10,15,20,25 и
+# ответом программы должно быть число 30.
+def is_arithmetic_progressive(a):
+    for j in range(1, 10):
+        if a == [i for i in range(a[0], a[-1] + j, j)]:
+            return a[len(a) - 1] + j
+    else:
+        return False
+
+
+def is_geometric_progressive(a):  # 1,2,4,8,16,32
+    for j in range(2, 10):
+        if a[1:] == [a[i] * j for i in range(len(a) - 1)] and a[0] == a[1] / j:
+            return a[len(a) - 1] * j
+    else:
+        return False
+
+
+def is_power_progressive(a):  # 1,4,9,16,25
+    for j in range(2, 10):
+        if a == [i ** j for i in range(a[0], len(a) + 1)]:
+            return (len(a) + 1) ** j
+    else:
+        return False
+
+
+def next_elem_sequence(a):
+    if not isinstance(a, list):
+        return None
+    for i in a:
+        if not isinstance(i, int):
+            return None
+    if is_arithmetic_progressive(x):
+        return is_arithmetic_progressive(x)
+    if is_geometric_progressive(x):
+        return is_geometric_progressive(x)
+    if is_power_progressive(x):
+        return is_power_progressive(x)
+    else:
+        return f'{a} is not sequence'
+
+
+x = input('enter: ')
+x = [int(i) for i in x.split(',')]
+print(next_elem_sequence(x))
