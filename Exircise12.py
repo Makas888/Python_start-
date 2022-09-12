@@ -36,23 +36,26 @@ print(triangle(5, '#'))
 
 
 def age_gradation(age, name):
-    if 0 < age < 500:
-        if 0 < age <= 10:
-            return f'{name}, {age} years - "childhood"'
-        if 10 < age <= 25:
-            return f'{name}, {age} years - "teenager"'
-        if 25 < age <= 44:
-            return f'{name}, {age} years - "young age"'
-        if 44 < age <= 60:
-            return f'{name}, {age} years - "average age"'
-        if 60 < age <= 75:
-            return f'{name}, {age} years - "elderly age"'
-        if 75 < age <= 90:
-            return f'{name}, {age} years - "old age"'
-        if 90 < age:
-            return f'{name}, {age} years - "long - liver"'
-    else:
+    if not isinstance(age, int,):
         return 'age is not correct'
+    if not (name.isalpha() and name.istitle()):
+        return 'name is not correct'
+    if age < 1 or age > 500:
+        return 'age is not correct'
+    elif age < 10:
+        return f'{name}, {age} years - "childhood"'
+    elif age < 25:
+        return f'{name}, {age} years - "teenager"'
+    elif age < 44:
+        return f'{name}, {age} years - "young age"'
+    elif age < 60:
+        return f'{name}, {age} years - "average age"'
+    elif age < 75:
+        return f'{name}, {age} years - "elderly age"'
+    elif age < 90:
+        return f'{name}, {age} years - "old age"'
+    elif age > 90:
+        return f'{name}, {age} years - "long - liver"'
 
 
 first_name, age_ = input('name: '), int(input('age: '))
@@ -193,27 +196,31 @@ print(f'Gold digger mined {max_gold(res)} gold bars')
 # клавиатуры в виде строки. Например, пользователь вводит строку 0,5,10,15,20,25 и
 # ответом программы должно быть число 30.
 def is_arithmetic_progressive(a):
-    for j in range(1, 10):
-        if a == [i for i in range(a[0], a[-1] + j, j)]:
-            return a[len(a) - 1] + j
-    else:
-        return False
+    num = a[1] - a[0]
+    for j in range(len(a) - 1):
+        if a[j + 1] - a[j] != num:
+            return False
+    return a[-1] + num
 
 
-def is_geometric_progressive(a):  # 1,2,4,8,16,32
-    for j in range(2, 10):
-        if a[1:] == [a[i] * j for i in range(len(a) - 1)] and a[0] == a[1] / j:
-            return a[len(a) - 1] * j
-    else:
-        return False
+def is_geometric_progressive(a):  
+    num = a[1] // a[0]
+    for j in range(1, len(a)):
+        if a[j] != a[j - 1] * num:
+            return False
+    return a[-1] * num
 
 
-def is_power_progressive(a):  # 1,4,9,16,25
-    for j in range(2, 10):
-        if a == [i ** j for i in range(a[0], len(a) + 1)]:
-            return (len(a) + 1) ** j
-    else:
-        return False
+def is_power_progressive(a): 
+    num = 2
+    while num < a[1]:
+        if a[-1] == (a.index(a[-1]) + 1) ** num:
+            break
+        num += 1
+    for j in range(len(a)):
+        if a[j] != (j + 1) ** num:
+            return False
+    return (a.index(a[-1]) + 2) ** num
 
 
 def next_elem_sequence(a):
